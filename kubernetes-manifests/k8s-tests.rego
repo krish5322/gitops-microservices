@@ -9,5 +9,17 @@ deny[msg] {
 deny[msg] {
    input.kind = "Deployment"
    not input.spec.template.spec.containers[0].resources
-   msg = "Containers must not run as root - use runAsNonRoot within container security context"
+   msg = "please set Resource Requests and Resource Limits for better performance"
+}
+
+deny[msg] {
+   input.kind = "Deployment"
+   not input.spec.template.spec.containers[0].readinessProbe
+   msg = "please set readinessProbe for better performance"
+}
+
+deny[msg] {
+   input.kind = "Deployment"
+   not input.spec.template.spec.containers[0].livenessProbe
+   msg = "please set livenessProbe for better performance"
 }
