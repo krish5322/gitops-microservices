@@ -46,9 +46,9 @@ spec:
           readinessProbe:
             exec:
               command: [ "/bin/grpc_health_probe", "-addr=:5050" ]
-            livenessProbe:
-              exec:
-                command: [ "/bin/grpc_health_probe", "-addr=:5050" ]
+          livenessProbe:
+            exec:
+              command: [ "/bin/grpc_health_probe", "-addr=:5050" ]
           env:
           - name: PORT
             value: "5050"
