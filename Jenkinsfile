@@ -99,16 +99,6 @@ pipeline {
           )
         }
       }
-      stage('Enabling Istio sidecar proxy injection') {
-          steps{
-              sh 'kubectl label namespace default istio-injection=enabled'
-          }
-      }
-      stage('Deploying microservices to K8s cluster') {
-          steps{
-              sh 'kubectl apply -f ./release '
-          }
-      }
       stage('Print Application url') {
           steps{
               sh 'INGRESS_HOST="$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')"'
