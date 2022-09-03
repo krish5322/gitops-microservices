@@ -99,12 +99,6 @@ pipeline {
           )
         }
       }
-      stage('Print Application url') {
-          steps{
-              sh 'export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')"'
-              sh 'echo "$INGRESS_HOST"'
-          }
-      }
       stage('Testing Application Availability') {
           steps{
               sh 'sleep 500s'
