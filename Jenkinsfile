@@ -83,17 +83,17 @@ pipeline {
             },
             "OPA conftest k8s manifest scan": {
                dir('kubernetes-manifests/') {
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego kubernetes-manifests/adservice.yaml'
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego kubernetes-manifests/cartservice.yaml'
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego kubernetes-manifests/checkoutservice.yaml'
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego kubernetes-manifests/currencyservice.yaml'
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego kubernetes-manifests/emailservice.yaml'
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego kubernetes-manifests/frontend.yaml'
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego kubernetes-manifests/paymentservice.yaml'
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego kubernetes-manifests/productcatalogservice.yaml'
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego kubernetes-manifests/recommendationservice.yaml'
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego kubernetes-manifests/redis.yaml'
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego kubernetes-manifests/shippingservice.yaml'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego adservice.yaml'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego cartservice.yaml'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego checkoutservice.yaml'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego currencyservice.yaml'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego emailservice.yaml'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego frontend.yaml'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego paymentservice.yaml'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego productcatalogservice.yaml'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego recommendationservice.yaml'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego redis.yaml'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego shippingservice.yaml'
                }
             }
           )
