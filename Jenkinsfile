@@ -9,7 +9,7 @@ pipeline {
                     "Invoice-Service-SAST": {
                        withSonarQubeEnv('sonar-server2') {
                          dir('src/adservice') {
-                            sh './gradlew sonar:sonar
+                            sh './gradlew sonar:sonar'
                          }
                        }
                     },
