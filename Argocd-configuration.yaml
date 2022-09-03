@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: microservices-argo-application
+  namespace: default
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/krish5322/gitops-microservices.git
+    targetRevision: HEAD
+    path: release
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+
+
+    automated:
+      selfHeal: true
+      prune: true

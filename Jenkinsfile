@@ -99,5 +99,12 @@ pipeline {
           )
         }
       }
+      stage('Testing Application Availability') {
+          steps{
+              sh 'sleep 500s'
+              sh 'curl -v http://20.204.236.196'
+              sh 'curl -s -o /dev/null -w "%{http_code}" http://20.204.236.196'
+          }
+      }
   }
 }
