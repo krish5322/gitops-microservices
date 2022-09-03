@@ -83,7 +83,7 @@ pipeline {
             },
             "OPA conftest k8s manifest scan": {
                dir('kubernetes-manifests/') {
-                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego adservice.yaml ;--exit-code 0'
+                 sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego adservice.yaml --fail-'
                  sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego cartservice.yaml ;--exit-code 0'
                  sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego checkoutservice.yaml ;--exit-code 0'
                  sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy k8s-tests.rego currencyservice.yaml'
