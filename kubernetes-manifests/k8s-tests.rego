@@ -8,6 +8,6 @@ deny[msg] {
 
 deny[msg] {
    input.kind = "Deployment"
-   if input.spec.template.spec.containers[0].resources.limits.cpu > "300m"
+   not exists(input.spec.template.spec.containers[0].resources)
    msg = "Containers must not run as root - use runAsNonRoot within container security context"
 }
