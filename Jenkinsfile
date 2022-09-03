@@ -10,10 +10,10 @@ pipeline {
                dir('src/adservice') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image openjdk:18-slim"
                }
-               dir(src/cartservice/src/') {
+               dir('src/cartservice/src/') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  imagemcr.microsoft.com/dotnet/sdk:7.0.100-preview.7"
                }
-               dir(src/checkoutservice/') {
+               dir('src/checkoutservice/') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image golang:1.19.0-alpine"
                }
                dir('src/currencyservice/'){
