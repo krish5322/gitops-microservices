@@ -9,33 +9,43 @@ pipeline {
             "Trivy Scan": {
                dir('src/adservice') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image --exit-code 0 openjdk:18-slim"
+                  sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy -q image --exit-code 0 --severity CRITICAL --light gcr.io/google-samples/microservices-demo/emailservice:v0.3.9"
                }
                dir('src/cartservice/src/') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image --exit-code 0 mcr.microsoft.com/dotnet/sdk:7.0.100-preview.7"
+                  sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy -q image --exit-code 0 --severity CRITICAL --light gcr.io/google-samples/microservices-demo/cartservice:v0.3.9"
                }
                dir('src/checkoutservice/') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image --exit-code 0 golang:1.19.0-alpine"
+                  sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy -q image --exit-code 0 --severity CRITICAL --light gcr.io/google-samples/microservices-demo/checkoutservice:v0.3.9"
                }
                dir('src/currencyservice/'){
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image --exit-code 0 node:18-alpine"
+                  sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy -q image --exit-code 0 --severity CRITICAL --light gcr.io/google-samples/microservices-demo/currencyservice:v0.3.9"
                }
                dir('src/emailservice/') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image --exit-code 0 python:3.9-slim"
+                  sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy -q image --exit-code 0 --severity CRITICAL --light gcr.io/google-samples/microservices-demo/emailservice:v0.3.9"
                }
                dir('src/frontend/') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image --exit-code 0 golang:1.19.0-alpine"
+                  sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy -q image --exit-code 0 --severity CRITICAL --light gcr.io/google-samples/microservices-demo/frontend:v0.3.9"
                }
                dir('src/paymentservice/') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image --exit-code 0 node:18-alpine"
+                  sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy -q image --exit-code 0 --severity CRITICAL --light gcr.io/google-samples/microservices-demo/paymentservice:v0.3.9"
                }
                dir('src/productcatalogservice/') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image --exit-code 0 golang:1.19.0-alpine"
+                  sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy -q image --exit-code 0 --severity CRITICAL --light gcr.io/google-samples/microservices-demo/productcatalogservice:v0.3.9"
                }
                dir('src/recommendationservice/') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image --exit-code 0 python:3.9-slim"
+                  sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy -q image --exit-code 0 --severity CRITICAL --light gcr.io/google-samples/microservices-demo/recommendationservice:v0.3.9"
                }
                dir('src/shippingservice/') {
                   sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.31.3  image --exit-code 0 golang:1.19.0-alpine"
+                  sh "docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy -q image --exit-code 0 --severity CRITICAL --light gcr.io/google-samples/microservices-demo/shippingservice:v0.3.9"
                }
             },
             "OPA Conftest": {
